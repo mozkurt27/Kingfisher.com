@@ -1,0 +1,28 @@
+﻿
+
+<div class="col-md-4">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th colspan="2">Update/Delete</th>
+            </tr>
+        </thead>
+        <tbody id="t-body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td colspan="2">
+                        <a href="javascript:getChange(@item.Id)" class="btn btn-warning form-control">Update</a>
+
+                        <a href="/book/delete/@item.Id" class="btn btn-danger form-control">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model Kingfisher.Admin.UI.Models.AllListVM
+
+<form id="insert-form">
+
+    <div class="form-group">
+        <label for="name">Book Name : </label>
+        <input type="text" class="form-control" name="name" />
+    </div>
+    <div class="form-group">
+        <label for="price">Price : </label>
+        <input type="number" class="form-control" name="price" />
+    </div>
+    <div class="form-group">
+        <label for="stock">Stock : </label>
+        <input type="number" class="form-control" name="stock" />
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity : </label>
+        <input type="text" class="form-control" name="quantity" />
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category :</label>
+        <select data-theme="a" data-mini="true" name="category">
+            <option value="">Select Category </option>
+            @foreach (var item in Model.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="publisher">Publisher :</label>
+        <select data-theme="a" data-mini="true" name="publisher">
+            <option value="">Select Publisher </option>
+            @foreach (var item in Model.Publishers)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+        <button onclick="getInsert()">Insert</button>
+    </div>
+
+
+</form>
+

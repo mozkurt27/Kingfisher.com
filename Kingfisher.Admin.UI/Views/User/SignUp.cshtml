@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Content/img/favicon.png">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.2.1.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="col-md-offset-2 col-md-8" style="margin-top:15%;background-color:aquamarine;border-radius:5%;">
+                    <form action="" method="post" class="form-horizontal" role="form" style="margin-top:10%;">
+                        @Html.AntiForgeryToken()
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <input id="signup-name" type="text" class="form-control" name="Name" value="" placeholder="Enter Name" required>
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <input id="signup-lastname" type="text" class="form-control" name="Lastname" value="" placeholder="Enter Lastname" required>
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="signup-username" type="text" class="form-control" name="Username" value="" placeholder="Enter Username" required>
+                        </div>
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="signup-password" type="password" class="form-control" name="Password" placeholder="Enter Password" required>
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input id="signup-email" type="email" class="form-control" name="Email" placeholder="Enter E-Mail" required>
+                        </div>
+
+                        <div style="margin-top:10px;" class="form-group">
+                            <div class="col-sm-12 controls">
+                                <input type="submit" name="" value="Register" class="btn btn-success" />
+                            </div>
+                        </div>
+
+                    </form>
+                    @Html.ValidationSummary(false)
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
