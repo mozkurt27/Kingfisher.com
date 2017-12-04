@@ -22,7 +22,7 @@ namespace Kingfisher.API.Controllers
                 Price = x.Price
             }).ToList();
 
-            return Ok(model);
+            return Json(model);
         }
 
         [HttpPost,ActionName("Insert")]
@@ -36,6 +36,23 @@ namespace Kingfisher.API.Controllers
                 CategoryId = model.category,
                 PublisherId = model.publisher
             });
+
+            return Json(result);
+        }
+
+        [HttpGet,ActionName("onebook")]
+        public IHttpActionResult GetOneBook(int? id)
+        {
+            BookDTO result = DataService.Service.BookService.SelectByOneList(id).Select(x => new BookDTO()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Price = x.Price,
+                category = (int)x.CategoryId,
+                publisher = (int)x.PublisherId,
+                Quantity = x.Quantity,
+                Stock = (short)x.Stock
+            }).FirstOrDefault();
 
             return Json(result);
         }

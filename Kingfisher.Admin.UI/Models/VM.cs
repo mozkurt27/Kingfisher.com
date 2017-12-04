@@ -14,6 +14,13 @@ namespace Kingfisher.Admin.UI.Models
         public List<PublisherDTO> Publishers { get; set; }
 
     }
+
+    public class ComplexVm
+    {
+        public BookDTO book { get; set; }
+        public AllListVM AllList { get; set; }
+
+    }
     public class SigninUserVM
     {
         [MinLength(4,ErrorMessage ="username kısa")]

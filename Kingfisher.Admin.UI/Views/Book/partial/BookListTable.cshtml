@@ -1,4 +1,9 @@
 ﻿
+@{
+    Layout = null;
+}
+
+@model List<Kingfisher.Admin.UI.Models.BookDTO>
 
 <div class="col-md-4">
 
@@ -20,6 +25,7 @@
                         <a href="javascript:getChange(@item.Id)" class="btn btn-warning form-control">Update</a>
 
                         <a href="/book/delete/@item.Id" class="btn btn-danger form-control">Delete</a>
+
                     </td>
                 </tr>
             }

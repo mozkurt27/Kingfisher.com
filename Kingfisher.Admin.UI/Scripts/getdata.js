@@ -26,6 +26,7 @@ function getInsert() {
         data:$('#insert-form').serialize(),
         success:function(res){
             console.log(res);
+            alert('Inserted');
         },
         error:function(err){
         

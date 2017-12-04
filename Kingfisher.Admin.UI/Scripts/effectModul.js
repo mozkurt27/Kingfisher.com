@@ -14,9 +14,15 @@ function MouseHoverIn() {
             method: 'get',
             success: function (response) {
                 if (response.length > 0) {
+                    
                     $('#content-body').html(response);
                 }
+            },
+            error: function (err) {
+
+                console.log(err);
             }
+
 
 
         })

@@ -23,7 +23,27 @@ namespace Kingfisher.Admin.UI.Manager.APIManager
             if (response.IsSuccessStatusCode)
             {
                 var data = await response.Content.ReadAsStringAsync();
-                model = Newtonsoft.Json.JsonConvert.DeserializeObject<List<BookDTO>>(data);
+                model = JsonConvert.DeserializeObject<List<BookDTO>>(data);
+
+                return model;
+            }
+
+            return null;
+        }
+        public async Task<BookDTO> OneBook(string ApiUrl)
+        {
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(ApiUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            BookDTO model;
+            HttpResponseMessage response = await client.GetAsync(ApiUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+                model = Newtonsoft.Json.JsonConvert.DeserializeObject<BookDTO>(data);
 
                 return model;
             }

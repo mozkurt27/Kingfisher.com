@@ -17,7 +17,7 @@ namespace Kingfisher.Admin.UI.Controllers
         }
 
        
-
+        [HttpGet]
         public async Task<ActionResult> Effect(string id)
         {
             if (id != null)
@@ -31,7 +31,7 @@ namespace Kingfisher.Admin.UI.Controllers
                             List<BookDTO> vm = await bm.SelectAll(ApiUrl);
 
                             if(vm != null)
-                            return PartialView("~/Views/Home/partial/BookListTable.cshtml", vm);
+                                return PartialView("~/Views/Book/partial/BookListTable.cshtml", vm);
 
                             return RedirectToAction("index");
                         }

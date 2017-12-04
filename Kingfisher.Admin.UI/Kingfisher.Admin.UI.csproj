@@ -125,6 +125,7 @@
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="Scripts\togglebtn.js" />
+    <Content Include="Scripts\updateform.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,8 +157,10 @@
     <Content Include="Views\Shared\partial\_sidebarLeft.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\SignUp.cshtml" />
-    <Content Include="Views\Home\partial\BookListTable.cshtml" />
     <Content Include="Views\Book\partial\insert.cshtml" />
+    <Content Include="Views\Book\partial\UpdateForm.cshtml" />
+    <Content Include="Views\Book\partial\BookListTable.cshtml" />
+    <Content Include="Views\Home\partial\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

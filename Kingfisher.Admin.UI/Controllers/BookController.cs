@@ -54,7 +54,31 @@ namespace Kingfisher.Admin.UI.Controllers
             List<BookDTO> model = await bm.SelectAll(ApiUrl);
 
 
-            return PartialView("~/Views/Home/partial/BookListTable.cshtml", model);
+            return PartialView("~/Views/Book/partial/BookListTable.cshtml", model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetOneBook(int? id)
+        {
+            ComplexVm complex = new ComplexVm();
+            AllListVM model = new AllListVM();
+            CategoryManager cm = new CategoryManager();
+            PublisherManager pm = new PublisherManager();
+            string ApiUrlCat = "http://localhost:6815/api/category/SelectAll";
+            string ApiUrlPub = "http://localhost:6815/api/publisher/SelectAll";
+            model.Categories = await cm.SelectAll(ApiUrlCat);
+            model.Publishers = await pm.SelectAll(ApiUrlPub);
+            complex.AllList = model;
+
+            BookManager bm = new BookManager();
+            string ApiUrlBook = "http://localhost:6815/api/book/onebook/"+id;
+            complex.book = await bm.OneBook(ApiUrlBook);
+
+
+
+
+            return PartialView("~/Views/Book/partial/UpdateForm.cshtml", complex);
+
         }
     }
 }
