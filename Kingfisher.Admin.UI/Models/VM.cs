@@ -21,6 +21,17 @@ namespace Kingfisher.Admin.UI.Models
         public AllListVM AllList { get; set; }
 
     }
+
+    public class bookDeletedDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int? Price { get; set; }
+
+        public string CategoryName { get; set; }
+        public string PublisherName { get; set; }
+
+    }
     public class SigninUserVM
     {
         [MinLength(4,ErrorMessage ="username kısa")]

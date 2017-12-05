@@ -50,4 +50,14 @@ namespace Kingfisher.API.Models
         public int publisher { get; set; }
 
     }
+    public class bookDeletedDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int? Price { get; set; }
+
+        public string CategoryName { get; set; }
+        public string PublisherName { get; set; }
+
+    }
 }

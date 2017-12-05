@@ -27,6 +27,17 @@ namespace Kingfisher.Admin.UI.Controllers
             return PartialView("~/Views/Book/partial/insert.cshtml", model);
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Deleteds()
+        {
+            BookManager bm = new BookManager();
+            string ApiUrl = "http://localhost:6815/api/book/deleteds";
+            List<BookDTO> model = await bm.Deleteds(ApiUrl);
+
+
+            return PartialView("~/Views/Book/partial/Deleteds.cshtml", model);
+        }
+
         [HttpPost]
         public async Task<ActionResult> Add(BookDTO model)
         {
@@ -57,6 +68,8 @@ namespace Kingfisher.Admin.UI.Controllers
             return PartialView("~/Views/Book/partial/BookListTable.cshtml", model);
         }
 
+
+
         [HttpGet]
         public async Task<ActionResult> GetOneBook(int? id)
         {
@@ -79,6 +92,28 @@ namespace Kingfisher.Admin.UI.Controllers
 
             return PartialView("~/Views/Book/partial/UpdateForm.cshtml", complex);
 
+        }
+
+        [HttpGet]
+        public async Task<JsonResult> Delete(int? id)
+        {
+            BookManager bm = new BookManager();
+            string ApiUrl = "http://localhost:6815/api/book/delete/";
+            bool result = await bm.Delete(id, ApiUrl);
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Update(BookDTO model)
+        {
+            BookManager bm = new BookManager();
+            string APiUrl = "http://localhost:6815/api/book/update";
+            bool result = await bm.Update(model, APiUrl);
+
+            if (result) return Json("OK");
+
+            return Json("No");
         }
     }
 }
