@@ -41,13 +41,7 @@ namespace Kingfisher.Admin.UI.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(BookDTO model)
         {
-            //AllListVM model = new AllListVM();
-            //CategoryManager cm = new CategoryManager();
-            //PublisherManager pm = new PublisherManager();
-            //string ApiUrlCat = "http://localhost:6815/api/category/SelectAll";
-            //string ApiUrlPub = "http://localhost:6815/api/publisher/SelectAll";
-            //model.Categories = await cm.SelectAll(ApiUrlCat);
-            //model.Publishers = await pm.SelectAll(ApiUrlPub);
+           
             string ApiUrl = "http://localhost:6815/api/book/Insert";
 
             BookManager bm = new BookManager();
